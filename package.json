@@ -11,6 +11,7 @@
   },
   "author": "Mikey",
   "dependencies": {
-    "lodash": "latest"
+    "lodash": "latest",
+    "prettier": "^1.19.1"
   }
 }

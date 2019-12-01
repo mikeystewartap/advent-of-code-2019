@@ -1,34 +1,35 @@
-const _ = require('lodash');
+const _ = require("lodash");
 
-var totalFuelAmount = 0;
-_.split(input, '\n').map((mass) => {
+module.exports = function answer(input) {
+
+  var totalFuelAmount = 0;
+  _.split(input, "\n").map(mass => {
     var moduleFuelAmount = calculateFuel(mass);
     totalFuelAmount += additionalFuel(moduleFuelAmount);
     totalFuelAmount += moduleFuelAmount;
-});
+  });
 
-function calculateFuel(mass){
-    return Math.floor((mass / 3) - 2);
-}
+  function calculateFuel(mass) {
+    return Math.floor(mass / 3 - 2);
+  }
 
-function additionalFuel(mass){
-
+  function additionalFuel(mass) {
     var additionalFuel = 0;
     var additionalFuelRequired = true;
 
-    while(additionalFuelRequired){
+    while (additionalFuelRequired) {
+      var fuelRequired = calculateFuel(mass);
+      if (fuelRequired > 0) {
+        additionalFuel += fuelRequired;
+      } else {
+        additionalFuelRequired = false;
+      }
 
-        var fuelRequired = calculateFuel(mass);
-        if(fuelRequired > 0){
-            additionalFuel += fuelRequired;
-        }else{        
-            additionalFuelRequired = false;
-        }
-        
-        mass = fuelRequired;
+      mass = fuelRequired;
     }
 
     return additionalFuel;
-};
+  }
 
-console.log('Total Fuel Amount: ', totalFuelAmount);
+  return totalFuelAmount;
+};
