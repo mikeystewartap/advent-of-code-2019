@@ -1,10 +1,7 @@
 const _ = require('lodash');
-const fs = require('fs');
-
-const inputRaw = fs.readFileSync('input/D01.txt', 'utf8');
 
 var totalFuelAmount = 0;
-_.split(inputRaw, '\n').map((mass) => {
+_.split(input, '\n').map((mass) => {
     var moduleFuelAmount = calculateFuel(mass);
     totalFuelAmount += additionalFuel(moduleFuelAmount);
     totalFuelAmount += moduleFuelAmount;
