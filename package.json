@@ -1,0 +1,11 @@
+{
+  "name": "mikeys-aod",
+  "version": "0.0.1",
+  "description": "Half arsed attempt at advent of code.",
+  "main": "index.js",
+  "author": "Mikey",
+  "dependencies": {
+    "lodash": "latest",
+    "request": "latest"
+  }
+}
